@@ -6,6 +6,8 @@ bool running = true;
 
 HINSTANCE hInstance;
 
+/** Windows callback function for things like resizing the window or Alt-F4
+**/
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 
 	switch (message) {
@@ -24,8 +26,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-/**
-	Create a Window in the OS Window Manager and attach the OpenGL Window to it
+/** Create a Window in the OS Window Manager and attach the OpenGL Window to it
 **/
 bool createWindow(LPCSTR title, int width, int height) {
 	WNDCLASS windowClass;
@@ -62,24 +63,28 @@ bool createWindow(LPCSTR title, int width, int height) {
 	return true;
 }
 
-/**
-	Here be dragons
+/** Main
 **/
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
+	MSG msg;
+
+	// Create a console and pipe the stdio to it so we can see it
 	AllocConsole();
 	FILE *fDummy;
 	freopen_s(&fDummy, "conin$", "r", stdin);
 	freopen_s(&fDummy, "conout$", "w", stdout);
 	freopen_s(&fDummy, "conout$", "w", stderr);
 
-	MSG msg;
-	const char *title = "OpenGL 3.2 Test";
+	const char *title = "OpenGL 4.2 Test";
 
 	createWindow(title, 1024, 768);
 	window.setupWindow();
 
+	// Core Loop
 	while (running) {
+
+		// Windows Message stuff
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 			if (msg.message == WM_QUIT)
 				running = false;
@@ -88,6 +93,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				DispatchMessage(&msg);
 			}
 		else
+			// Render
 			window.renderWindow();
 	}
 	return (int)msg.wParam;

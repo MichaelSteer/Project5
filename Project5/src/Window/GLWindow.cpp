@@ -1,22 +1,19 @@
 #include "GLWindow.h"
 #include <iostream>
-/**
-	Create OpenGL Window instance
+/** Create OpenGL Window instance
 **/
 bool GLWindow::createWindow() {
 	return true;
 }
 
-/**
-  Create OpenGL Window instance with window identifier
+/** Create OpenGL Window instance with window identifier
 **/
 bool GLWindow::createWindow(HWND hwnd) {
 	return createContext(hwnd);
 }
 
 
-/**
-	Create the OpenGL context instance
+/** Create the OpenGL context instance
 **/
 bool GLWindow::createContext(HWND hwnd) {
 	this->hwnd = hwnd;
@@ -59,7 +56,7 @@ bool GLWindow::createContext(HWND hwnd) {
 	}
 
 	int attributes[] = {
-		WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
+		WGL_CONTEXT_MAJOR_VERSION_ARB, 4,
 		WGL_CONTEXT_MINOR_VERSION_ARB, 2,
 		WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
 		0
@@ -86,8 +83,7 @@ bool GLWindow::createContext(HWND hwnd) {
 	return true;
 }
 
-/**
-	Destroy the OpenGL window instance.
+/** Destroy the OpenGL window instance.
 **/
 bool GLWindow::destroyWindow() {
 	wglMakeCurrent(hdc, 0);
@@ -96,27 +92,48 @@ bool GLWindow::destroyWindow() {
 	return true;
 }
 
-/**
-	setup the window to display something
+/** setup the window to display something
 **/
 bool GLWindow::setupWindow() {
 	glClearColor(0.4f, 0.6f, 0.9f, 0.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+	projectionMatrix = glm::perspective(80.0f, (float)width / (float)height, 0.1f, 100.f);
+	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.f));
+	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(2.5f));
+	shader = new Shader("shader.vert", "shader.frag");
+	model.testGeometry();
 	return true;
 }
 
-/**
-	reshape callback
+/** reshape callback
 **/
 void GLWindow::reshapeWindow(int w, int h) {
 	width = w;
 	height = h;
+	projectionMatrix = glm::perspective(80.0f, (float)width / (float)height, 0.1f, 100.f);
 }
 
-/**
-	render
+/** render
 **/
 void GLWindow::renderWindow() {
 	glViewport(0, 0, width, height);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+	shader->bind();
+	int projectionMatrixLocation = glGetUniformLocation(shader->id(), "projectionMatrix");
+	int viewMatrixLocation = glGetUniformLocation(shader->id(), "viewMatrix");
+	int modelMatrixLocation = glGetUniformLocation(shader->id(), "modelMatrix");
+
+	glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, &projectionMatrix[0][0]);
+	glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]);
+	glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]);
+	model.draw();
+
+	shader->unbind();
 	SwapBuffers(hdc);
+}
+
+void GLWindow::testGeometry() {
+
 }

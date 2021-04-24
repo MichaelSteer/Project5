@@ -13,18 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{fd22114d-130d-44ee-80aa-19e683cc78ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Window">
+      <UniqueIdentifier>{54c52530-a384-41d4-a3bd-3d5edc3f2463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader">
+      <UniqueIdentifier>{4299aa04-1267-453a-834c-5c2fa8713cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shader">
+      <UniqueIdentifier>{6021d4ad-94bd-41db-a1db-74e6c46a94cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{64351c40-6a9f-4350-b956-c543946909ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{7ff40292-b0b3-4ada-9ff5-b54bbb5c7d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Experiments">
+      <UniqueIdentifier>{fd66c4ff-b98e-468f-b4f7-ac2273517d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Experiments\Color">
+      <UniqueIdentifier>{5b8860a4-2dfb-48f9-835c-53f3924d08fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Experiments">
+      <UniqueIdentifier>{c79bbfc4-45ff-474d-b280-06aeb2a23717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Experiments\Color">
+      <UniqueIdentifier>{10eafda3-c284-450d-9cb0-2ef512377498}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Window\GLWindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader\Shader.cpp">
+      <Filter>Source Files\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model\Model.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\experiments\color.cpp">
+      <Filter>Source Files\Experiments\Color</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Shader\Shader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
     <ClInclude Include="src\Window\GLWindow.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model\Model.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\experiments\color.h">
+      <Filter>Header Files\Experiments\Color</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

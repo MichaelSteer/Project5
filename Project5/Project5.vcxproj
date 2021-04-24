@@ -132,9 +132,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\experiments\color.cpp" />
+    <ClCompile Include="src\Model\Model.cpp" />
+    <ClCompile Include="src\Shader\Shader.cpp" />
     <ClCompile Include="src\Window\GLWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\experiments\color.h" />
+    <ClInclude Include="src\Model\Model.h" />
+    <ClInclude Include="src\Shader\Shader.h" />
     <ClInclude Include="src\Window\GLWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

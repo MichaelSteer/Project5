@@ -1,9 +1,15 @@
+/** File:   Main.cpp
+ *  Author: Michael Steer
+ *  Date:   25-05-21
+ * 
+ *  Main File for the entire program
+*/
+
 #include <iostream>
 #include "src/Window/GLWindow.h"
-
-GLWindow window;
+#include "src/State/StateManager.h"
 bool running = true;
-
+GLWindow window;
 HINSTANCE hInstance;
 
 /** Windows callback function for things like resizing the window or Alt-F4
@@ -63,23 +69,26 @@ bool createWindow(LPCSTR title, int width, int height) {
 	return true;
 }
 
-/** Main
-**/
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-
-	MSG msg;
-
+void debugConsole() {
 	// Create a console and pipe the stdio to it so we can see it
 	AllocConsole();
 	FILE *fDummy;
 	freopen_s(&fDummy, "conin$", "r", stdin);
 	freopen_s(&fDummy, "conout$", "w", stdout);
 	freopen_s(&fDummy, "conout$", "w", stderr);
+}
+/** Main
+**/
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+
+	MSG msg;
+	debugConsole();
 
 	const char *title = "OpenGL 4.2 Test";
-
 	createWindow(title, 1024, 768);
-	window.setupWindow();
+
+	StateManager mainLoop(window);
+	mainLoop.start();
 
 	// Core Loop
 	while (running) {
@@ -93,8 +102,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				DispatchMessage(&msg);
 			}
 		else
-			// Render
-			window.renderWindow();
+			mainLoop.tick();
 	}
+	mainLoop.stop();
 	return (int)msg.wParam;
 }

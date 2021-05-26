@@ -7,8 +7,11 @@
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 
+#include "../Input/Keyboard.h"
+
 #include "../Shader/Shader.h"
-#include "../Model/Model.h"
+#include "../Objects/Model/Model.h"
+#include "../Objects/Camera/Camera.h"
 
 class GLWindow {
 public:
@@ -25,6 +28,8 @@ public:
 
 	void testGeometry();
 
+	void view(Camera& camera);
+	void updateViewMatrix();
 private:
 	int width;
 	int height;
@@ -36,6 +41,8 @@ private:
 	glm::mat4 modelMatrix;
 
 	Model model;
+
+	Camera camera;
 
 protected:
 	HGLRC hrc;  // rendering context

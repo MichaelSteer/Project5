@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,14 +133,42 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\experiments\color.cpp" />
-    <ClCompile Include="src\Model\Model.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Input\Keyboard.cpp" />
+    <ClCompile Include="src\Input\Mouse.cpp" />
+    <ClCompile Include="src\Math\Noise\Perlin.cpp" />
+    <ClCompile Include="src\Math\Noise\Simplex.cpp" />
+    <ClCompile Include="src\Objects\Camera\Camera.cpp" />
+    <ClCompile Include="src\Objects\Model\Model.cpp" />
+    <ClCompile Include="src\Objects\Model\Obj.cpp" />
+    <ClCompile Include="src\Objects\Object.cpp" />
     <ClCompile Include="src\Shader\Shader.cpp" />
+    <ClCompile Include="src\State\Main\MainState.cpp" />
+    <ClCompile Include="src\State\State.cpp" />
+    <ClCompile Include="src\State\StateManager.cpp" />
+    <ClCompile Include="src\Utility\Singleton\Singleton.cpp" />
+    <ClCompile Include="src\Utility\Timer\Timer.cpp" />
     <ClCompile Include="src\Window\GLWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="include\EngineDefs.h" />
     <ClInclude Include="src\experiments\color.h" />
-    <ClInclude Include="src\Model\Model.h" />
+    <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Input\Keyboard.h" />
+    <ClInclude Include="src\Input\Mouse.h" />
+    <ClInclude Include="src\Math\Noise\Perlin.h" />
+    <ClInclude Include="src\Math\Noise\Simplex.h" />
+    <ClInclude Include="src\Objects\Camera\Camera.h" />
+    <ClInclude Include="src\Objects\Model\Model.h" />
+    <ClInclude Include="src\Objects\Model\OBJ.h" />
+    <ClInclude Include="src\Objects\Object.h" />
     <ClInclude Include="src\Shader\Shader.h" />
+    <ClInclude Include="src\State\Main\MainState.h" />
+    <ClInclude Include="src\State\State.h" />
+    <ClInclude Include="src\State\StateManager.h" />
+    <ClInclude Include="src\Utility\Singleton\Singleton.h" />
+    <ClInclude Include="src\Utility\Timer\Timer.h" />
     <ClInclude Include="src\Window\GLWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

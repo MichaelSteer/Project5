@@ -10,6 +10,7 @@ bool GLWindow::createWindow() {
 **/
 bool GLWindow::createWindow(HWND hwnd) {
 	return createContext(hwnd);
+	
 }
 
 
@@ -98,8 +99,10 @@ bool GLWindow::setupWindow() {
 	glClearColor(0.4f, 0.6f, 0.9f, 0.0f);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
+
 	projectionMatrix = glm::perspective(80.0f, (float)width / (float)height, 0.1f, 100.f);
-	viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.f));
+	//viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -5.f));
+	viewMatrix = camera.viewMatrix();
 	modelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(2.5f));
 	shader = new Shader("shader.vert", "shader.frag");
 	model.testGeometry();
@@ -129,11 +132,19 @@ void GLWindow::renderWindow() {
 	glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]);
 	glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]);
 	model.draw();
-
 	shader->unbind();
+
 	SwapBuffers(hdc);
 }
 
 void GLWindow::testGeometry() {
 
+}
+
+void GLWindow::view(Camera& camera) {
+	this->camera = camera;
+}
+
+void GLWindow::updateViewMatrix() {
+	viewMatrix = camera.viewMatrix();
 }

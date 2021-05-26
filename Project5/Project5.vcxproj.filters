@@ -25,12 +25,6 @@
     <Filter Include="Source Files\Shader">
       <UniqueIdentifier>{6021d4ad-94bd-41db-a1db-74e6c46a94cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Model">
-      <UniqueIdentifier>{64351c40-6a9f-4350-b956-c543946909ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Model">
-      <UniqueIdentifier>{7ff40292-b0b3-4ada-9ff5-b54bbb5c7d94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Experiments">
       <UniqueIdentifier>{fd66c4ff-b98e-468f-b4f7-ac2273517d64}</UniqueIdentifier>
     </Filter>
@@ -43,6 +37,60 @@
     <Filter Include="Source Files\Experiments\Color">
       <UniqueIdentifier>{10eafda3-c284-450d-9cb0-2ef512377498}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{c43d955c-35c3-4e16-86c8-b797bc7f0ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Model">
+      <UniqueIdentifier>{7ff40292-b0b3-4ada-9ff5-b54bbb5c7d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{5c028096-11bf-4fc1-9877-df531c1f32ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Model">
+      <UniqueIdentifier>{64351c40-6a9f-4350-b956-c543946909ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Camera">
+      <UniqueIdentifier>{7e657e71-4f18-40ec-b783-adbdcdc15ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Camera">
+      <UniqueIdentifier>{1c09dfcb-59ed-4b81-85fd-e94338824d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{b5d37613-452e-4517-9016-5a40f7c6e3d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{157ae963-3d3d-423a-87ef-a35447ac8882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\State">
+      <UniqueIdentifier>{fc1173d5-cd19-48ea-bb96-87ce2833f7b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{8c6b8afd-0064-427c-be20-cf5d2dd8644c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\State\Main">
+      <UniqueIdentifier>{614a09f9-bfd5-4a32-a6b5-736c4702d969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Main">
+      <UniqueIdentifier>{96e4d7a3-ebd7-43c2-aca1-de8ee5d85508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{0d89296a-5cc9-4437-825c-96ba73cb236e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility\Timer">
+      <UniqueIdentifier>{6a03af73-2342-4ca9-9d44-9da508b9d981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{42a4208e-2943-433c-a71a-100a78f0de8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility\Timer">
+      <UniqueIdentifier>{1dd16ae5-d011-4e85-af9f-b9d7b9d20758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility\Singleton">
+      <UniqueIdentifier>{2aa78589-bf8b-47f5-a717-8d00ad816e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility\Singleton">
+      <UniqueIdentifier>{4b31e3c5-69a5-4463-83c5-bc00a5b04aaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -54,11 +102,50 @@
     <ClCompile Include="src\Shader\Shader.cpp">
       <Filter>Source Files\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="src\Model\Model.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
     <ClCompile Include="src\experiments\color.cpp">
       <Filter>Source Files\Experiments\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Model\Model.cpp">
+      <Filter>Source Files\Objects\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Model\Obj.cpp">
+      <Filter>Source Files\Objects\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Camera\Camera.cpp">
+      <Filter>Source Files\Objects\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Input.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Keyboard.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Mouse.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\State\State.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\State\Main\MainState.cpp">
+      <Filter>Source Files\State\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\State\StateManager.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Noise\Perlin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Noise\Simplex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Timer\Timer.cpp">
+      <Filter>Source Files\Utility\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Singleton\Singleton.cpp">
+      <Filter>Source Files\Utility\Singleton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +155,56 @@
     <ClInclude Include="src\Window\GLWindow.h">
       <Filter>Header Files\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Model\Model.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
     <ClInclude Include="src\experiments\color.h">
       <Filter>Header Files\Experiments\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Model\Model.h">
+      <Filter>Header Files\Objects\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Model\OBJ.h">
+      <Filter>Header Files\Objects\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Objects\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Camera\Camera.h">
+      <Filter>Header Files\Objects\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Keyboard.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Mouse.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineDefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\State\State.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\State\Main\MainState.h">
+      <Filter>Header Files\State\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\State\StateManager.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math\Noise\Perlin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math\Noise\Simplex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Timer\Timer.h">
+      <Filter>Header Files\Utility\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Singleton\Singleton.h">
+      <Filter>Header Files\Utility\Singleton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

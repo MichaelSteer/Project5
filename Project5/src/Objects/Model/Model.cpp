@@ -1,6 +1,6 @@
 #include "Model.h"
 #include <iostream>
-#include "../experiments/color.h"
+#include "../../experiments/color.h"
 
 ColorWheel colorfill;
 

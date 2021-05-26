@@ -1,0 +1,11 @@
+# Game Engine Project
+
+This is a project wrote by myself to help myself learn C++,
+
+## Installation
+
+1. import the .vxcproj file and hope that does it. Only works on windows
+2. Idk. Make a better build system for me and submit a pull request if you figure it out for me.
+
+## Disclaimer
+This is an educational project Im making for myself in order to better my skills in terms of code organization, practicing OOP paradigms, etc. This should not be used as a guide for schooling, research relating to programming, etc.
